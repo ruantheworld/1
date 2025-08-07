@@ -138,4 +138,9 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+# Ignora toda a pasta .netlify
 .netlify/
+
+# Mas não ignora a pasta .netlify/functions
+!.netlify/functions/
+!.netlify/functions/**
