@@ -1,0 +1,10 @@
+[dev]
+  # Se seu front-end é estático (ex: só HTML, CSS, JS na raiz ou numa pasta específica)
+  # especifique a pasta que deve ser servida localmente:
+  publish = "."
+
+  # Se você tiver um backend/servidor local, especifique o comando para rodar ele, exemplo:
+  # command = "npm start"
+
+  # Porta que o servidor local rodará (opcional)
+  # port = 3000
