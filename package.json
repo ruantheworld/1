@@ -10,9 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0",
-    "form-data": "^4.0.4",
-    "mysql2": "^3.14.3",
-    "node-fetch": "^2.7.0"
+    "pg": "^8.x.x",
+    "node-fetch": "^2.x.x",
+    "form-data": "^4.x.x"
   }
 }
