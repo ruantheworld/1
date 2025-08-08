@@ -3,89 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <title>Formulario Hospital</title>
 </head>
 <body>
-    <!-- Campo 1 -->
-    <div>
-        <p>Nome completo do personagem (In game):</p>
-        <input id="inputBox" placeholder="Ex: Dra. Mariana Silva">
-    </div>
-    <!-- Campo 2 REMOVIDO-->
-    <div>
-        <p>Disponibilidade de horário:</p>
-        <input id="inputBox2" placeholder="Horário de disponibilidade dentro da cidade">
-    </div>
-    <!-- Campo 3 -->
-    <div>
-        <p>Idade (IRL):</p>
-        <input id="inputBox3" placeholder="Ex: Idade na vida real">
-    </div>
+    <div class="container">
+        <!-- Campo 1 -->
+        <h2>Edital Hospital</h2>
+        <div>
+            <label for="inputBox">Nome completo do personagem (In game):</label>
+            <input id="inputBox" class="input-style" placeholder="Ex: Dra. Mariana Silva">
+        </div>
+        <br>
+        <!-- Campo 2 REMOVIDO-->
+        <div>
+            <label for="inputBox">Disponibilidade de horário:</label>
+            <input id="inputBox2" class="input-style" placeholder="Horário de disponibilidade dentro da cidade">
+        </div>
+        <br>
+        <!-- Campo 3 -->
+        <div>
+            <label for="inputBox">Idade (IRL):</label>
+            <input id="inputBox3" class="input-style" placeholder="Ex: Idade na vida real">
+        </div>
+        <br>
+        <!-- Campo 4 -->
+        <div>
+            <label for="inputBox">Experiência na área médica (In game):</label>
+            <input id="inputBox4" class="input-style" placeholder="Tem alguma formação? Já trabalhou em outro hospital? Conte sua história.">
+        </div>
+        <br>
+        <!-- Campo 5 -->
+        <div>
+            <label for="inputBox">Por que deseja trabalhar no hospital? (In game):</label>
+            <input id="inputBox5" class="input-style" placeholder="Mostre a motivação do seu personagem.">
+        </div>
+        <br>
+        <!-- Campo 6 -->
+        <div>
+            <label for="inputBox">Quais qualidades você traz para a equipe? (In game e IRL):</label>
+            <input id="inputBox6" class="input-style" placeholder="Ex: Responsabilidade, empatia, bom trabalho em equipe, pontualidade, etc.">
+        </div>
+        <br>
+        <!-- Campo 7 -->
+        <div>
+            <label for="inputBox">Por que deseja trabalhar no hospital? (In game):</label>
+            <input id="inputBox7" class="input-style" placeholder="Mostre a motivação do seu personagem.">
+        </div>
+        <br>
+        <!-- Campo 8 -->
+        <div class="radio-group">
+            <p>Já teve experiência anterior em servidor RP? (IRL):</p>
+            
+            <label for="respostaSim">
+                <input type="radio" id="respostaSim" name="resposta" value="sim" />
+                Sim
+            </label>
+            
+            
+            <!-- Campo extra que aparece só se Sim for selecionado -->
+        <div id="caixaConteudo" style="display:none; margin-top: 10px;">
+            <label for="conteudoTexto"></label><br />
+            <textarea id="conteudoTexto" class="input-style" name="conteudoTexto" rows="4" cols="50" placeholder="Conte um pouco sobre sua experiência em servidores RP anteriores:"></textarea>
+        </div>
+        <br>
+            <label for="respostaNao">
+                <input type="radio" id="respostaNao" name="resposta" value="nao" />
+                Não
+            </label> 
+        </div>
+        <!-- Campo 9 -->
+        <div class="radio-group">
+            <p>Cargo desejado:</p>
 
-    <!-- Campo 4 -->
-    <div>
-        <p>Experiência na área médica (In game):</p>
-        <input id="inputBox4" placeholder="Tem alguma formação? Já trabalhou em outro hospital? Conte sua história.">
-    </div>
-    
-    <!-- Campo 5 -->
-     <div>
-        <p>Por que deseja trabalhar no hospital? (In game):</p>
-        <input id="inputBox5" placeholder="Mostre a motivação do seu personagem.">
-     </div>
+            <label><input type="radio" name="cargo" value="Médico(a)"> Médico(a)</label><br>
+            <label><input type="radio" name="cargo" value="Enfermeiro(a)"> Enfermeiro(a)</label><br>
+            <label><input type="radio" name="cargo" value="Paramédico(a)"> Paramédico(a)</label><br>
+            <label><input type="radio" name="cargo" value="Estagiário(a)"> Estagiário(a)</label><br>
 
-     <!-- Campo 6 -->
-     <div>
-        <p>Quais qualidades você traz para a equipe? (In game e IRL):</p>
-        <input id="inputBox6" placeholder="Ex: Responsabilidade, empatia, bom trabalho em equipe, pontualidade, etc.">
-     </div>
+            <label>
+                <input type="radio" name="cargo" value="Outro" id="cargoOutroRadio" > Outro:
+            </label>
 
-     <!-- Campo 7 -->
-     <div>
-        <p>Por que deseja trabalhar no hospital? (In game):</p>
-        <input id="inputBox7" placeholder="Mostre a motivação do seu personagem.">
-     </div>
+            <div id="campoOutroCargo"  style="display:none; margin-top: 5px;">
+                <input type="text" id="inputOutroCargo" class="input-style" placeholder="Informe outro cargo..." />
+            </div>
+        </div>
 
-     <!-- Campo 8 -->
-    <div>
-        <p>Já teve experiência anterior em servidor RP? (IRL):</p>
-        <input type="radio" id="respostaSim" name="resposta" value="sim" />
-        <label for="respostaSim">Sim – Conte um pouco sobre</label>
-
-        <input type="radio" id="respostaNao" name="resposta" value="nao" />
-        <label for="respostaNao">Não – Está começando agora</label>
-    </div>
-
-    <!-- Campo extra que aparece só se Sim for selecionado -->
-    <div id="caixaConteudo" style="display:none; margin-top: 10px;">
-        <label for="conteudoTexto">Conte um pouco sobre sua experiência em servidores RP anteriores:</label><br />
-        <textarea id="conteudoTexto" name="conteudoTexto" rows="4" cols="50" placeholder="Descreva aqui..."></textarea>
-    </div>
-
-    <!-- Campo 9 -->
-    <div>
-        <p>Cargo desejado:</p>
-
-        <label><input type="radio" name="cargo" value="Médico(a)"> Médico(a)</label><br>
-        <label><input type="radio" name="cargo" value="Enfermeiro(a)"> Enfermeiro(a)</label><br>
-        <label><input type="radio" name="cargo" value="Paramédico(a)"> Paramédico(a)</label><br>
-        <label><input type="radio" name="cargo" value="Estagiário(a)"> Estagiário(a)</label><br>
-
-        <label>
-            <input type="radio" name="cargo" value="Outro" id="cargoOutroRadio"> Outro:
-        </label>
-
-        <div id="campoOutroCargo" style="display:none; margin-top: 5px;">
-            <input type="text" id="inputOutroCargo" placeholder="Informe outro cargo..." />
+        <!-- Botão enviar para o database -->
+        <div>
+            <p>
+                <button id="sendToDatabase">Enviar</button>
+            </p>
         </div>
     </div>
 
-    <!-- Botão enviar para o database -->
-    <div>
-        <p>
-            <button id="sendToDatabase">Enviar</button>
-        </p>
-    </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
