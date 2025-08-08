@@ -13,14 +13,102 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     }
+
     body {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     min-height: 100vh;
+    padding-top: 80px;
     }
 
+    /* NAVBAR------------------------------------------------------------------------ */
+    /* Navbar CSS */
+    .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background-color: rgba(40, 40, 60, 0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0);
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1000;
+    }
+
+    .navbar-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color:  rgba(207, 148, 30, 0.8);
+    text-shadow: 0 0 5px #dbc604;
+    text-decoration: none;
+    }
+
+    .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    }
+
+    .nav-links a {
+    color: #f5f5f5;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+    background-color: rgba(207, 148, 30, 0.8);
+    color: #fff;
+    outline: none;
+    }
+
+    /* Responsividade simples */
+    @media (max-width: 650px) {
+    .navbar-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* Logo container */
+        .logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px; /* espaçamento entre a imagem e o texto */
+    }
+
+    .logo-img {
+    height: 40px; /* ajuste o tamanho conforme necessário */
+    width: auto;
+    }
+
+    .logo-text {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(238, 190, 62, 1); 
+    font-family: 'Medula One', 'Montserrat', sans-serif;
+    }
+    /* ------------------------------------------------------------------------- */
     .container {
     background-color: rgba(40, 40, 60, 0.5);
     max-width: 1000px;
