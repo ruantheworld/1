@@ -1,12 +1,9 @@
-const { Pool } = require('pg');
+const { neon } = require('@netlify/neon');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 const fs = require('fs');
 
-const pool = new Pool({
-  connectionString: process.env.NETLIFY_DATABASE_URL || process.env.NETLIFY_DATABASE_URL_UNPOOLED,
-  ssl: { rejectUnauthorized: false },
-});
+const sql = neon();
 
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1403137852790935676/nAWt2OkDHP-5LrOErvPNR2FcIeIzezu1FRABLHaKhY92VlUOJgkrCfHTq4EVL2kNPYRF';
 
@@ -37,7 +34,7 @@ exports.handler = async (event) => {
 
     const finalMessage = `Caixa1: \n${texto} \n\nCaixa2: \n${texto2} \n\nCaixa3: \n${texto3}`;
 
-    await pool.query('INSERT INTO mensagens (texto) VALUES ($1)', [finalMessage]);
+    await sql`INSERT INTO mensagens (texto) VALUES (${finalMessage})`;
 
     const responseDiscord = await enviarArquivoParaDiscord(finalMessage);
 
@@ -48,7 +45,7 @@ exports.handler = async (event) => {
       };
     }
 
-    await pool.query('DELETE FROM mensagens');
+    await sql`DELETE FROM mensagens`;
 
     return {
       statusCode: 200,
@@ -61,4 +58,4 @@ exports.handler = async (event) => {
       body: 'Erro no servidor',
     };
   }
-};
+}
