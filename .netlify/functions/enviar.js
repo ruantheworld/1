@@ -26,9 +26,37 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { texto, texto2, texto3 } = JSON.parse(event.body);
+    const { texto, texto2, texto3, texto4, texto5, texto6, texto7, resposta, conteudo, cargo } = JSON.parse(event.body);
 
-    const finalMessage = `Caixa1: \n${texto} \n\nCaixa2: \n${texto2} \n\nCaixa3: \n${texto3}`;
+    const finalMessage = `
+📋 FORMULÁRIO ENVIADO
+
+👤 Nome do personagem (IC):
+${texto}
+
+🧍 Nome do jogador (OOC):
+${texto2}
+
+📅 Idade (IC/OOC):
+${texto3}
+
+🩺 Experiência na área médica (IC):
+${texto4}
+
+❤️ Por que deseja trabalhar no hospital? (IC):
+${texto5}
+
+⭐ Qualidades (IC e OOC):
+${texto6}
+
+🧠 RP Anterior: ${resposta.toUpperCase()}
+${resposta === 'sim' ? `📝 Conte um pouco sobre:\n${conteudo}` : ''}
+
+💼 Cargo desejado:
+${cargo}
+
+-----------------------------
+`;
 
     await sql`INSERT INTO mensagens (texto) VALUES (${finalMessage})`;
 

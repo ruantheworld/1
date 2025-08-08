@@ -8,19 +8,84 @@
 <body>
     <!-- Campo 1 -->
     <div>
-        <input id="inputBox" placeholder="Mande para o banco">
-        <button id="sendToDatabase">Enviar</button>
+        <p>Nome completo do personagem (IC):</p>
+        <input id="inputBox" placeholder="Ex: Dra. Mariana Silva">
     </div>
     <!-- Campo 2 -->
     <div>
-        <input id="inputBox2" placeholder="Mande para o banco">
+        <p>Nome do jogador (OOC):</p>
+        <input id="inputBox2" placeholder="Seu nome fora do personagem, para contato da staff">
     </div>
     <!-- Campo 3 -->
     <div>
-        <input id="inputBox3" placeholder="Mande para o banco">
+        <p>Idade (IC e OOC):</p>
+        <input id="inputBox3" placeholder="Ex: IC: 28 anos | OOC: 21 anos">
     </div>
 
+    <!-- Campo 4 -->
+    <div>
+        <p>Experiência na área médica (IC):</p>
+        <input id="inputBox4" placeholder="Tem alguma formação? Já trabalhou em outro hospital? Conte sua história.">
+    </div>
     
+    <!-- Campo 5 -->
+     <div>
+        <p>Por que deseja trabalhar no hospital? (IC):</p>
+        <input id="inputBox5" placeholder="Mostre a motivação do seu personagem.">
+     </div>
+
+     <!-- Campo 6 -->
+     <div>
+        <p>Quais qualidades você traz para a equipe? (IC e OOC):</p>
+        <input id="inputBox6" placeholder="Ex: Responsabilidade, empatia, bom trabalho em equipe, pontualidade, etc.">
+     </div>
+
+     <!-- Campo 7 -->
+     <div>
+        <p>Por que deseja trabalhar no hospital? (IC):</p>
+        <input id="inputBox7" placeholder="Mostre a motivação do seu personagem.">
+     </div>
+
+     <!-- Campo 8 -->
+    <div>
+        <p>Já teve experiência anterior em servidor RP? (OOC):</p>
+        <input type="radio" id="respostaSim" name="resposta" value="sim" />
+        <label for="respostaSim">Sim – Conte um pouco sobre</label>
+
+        <input type="radio" id="respostaNao" name="resposta" value="nao" />
+        <label for="respostaNao">Não – Está começando agora</label>
+    </div>
+
+    <!-- Campo extra que aparece só se Sim for selecionado -->
+    <div id="caixaConteudo" style="display:none; margin-top: 10px;">
+        <label for="conteudoTexto">Conte um pouco sobre sua experiência em servidores RP anteriores:</label><br />
+        <textarea id="conteudoTexto" name="conteudoTexto" rows="4" cols="50" placeholder="Descreva aqui..."></textarea>
+    </div>
+
+    <!-- Campo 9 -->
+    <div>
+        <p>Cargo desejado:</p>
+
+        <label><input type="radio" name="cargo" value="Médico(a)"> Médico(a)</label><br>
+        <label><input type="radio" name="cargo" value="Enfermeiro(a)"> Enfermeiro(a)</label><br>
+        <label><input type="radio" name="cargo" value="Paramédico(a)"> Paramédico(a)</label><br>
+        <label><input type="radio" name="cargo" value="Estagiário(a)"> Estagiário(a)</label><br>
+
+        <label>
+            <input type="radio" name="cargo" value="Outro" id="cargoOutroRadio"> Outro:
+        </label>
+
+        <div id="campoOutroCargo" style="display:none; margin-top: 5px;">
+            <input type="text" id="inputOutroCargo" placeholder="Informe outro cargo..." />
+        </div>
+    </div>
+
+    <!-- Botão enviar para o database -->
+    <div>
+        <p>
+            <button id="sendToDatabase">Enviar</button>
+        </p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
