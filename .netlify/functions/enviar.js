@@ -1,30 +1,26 @@
-import { neon } from '@netlify/neon';
-import fetch from 'node-fetch';
-import FormData from 'form-data';
-import fs from 'fs/promises';  // Use promises do fs pra async/await
+const { neon } = require('@netlify/neon');
+const fetch = require('node-fetch');
+const FormData = require('form-data');
 
-const sql = neon(); // Usa process.env.NETLIFY_DATABASE_URL automaticamente
+const sql = neon();
 
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1403137852790935676/nAWt2OkDHP-5LrOErvPNR2FcIeIzezu1FRABLHaKhY92VlUOJgkrCfHTq4EVL2kNPYRF';
 
 async function enviarArquivoParaDiscord(conteudo, nomeDoArquivo = 'mensagem.txt') {
   const form = new FormData();
 
-  await fs.writeFile(nomeDoArquivo, conteudo, 'utf8');
-  form.append('file', fs.createReadStream(nomeDoArquivo));
+  const buffer = Buffer.from(conteudo, 'utf8');
+  form.append('file', buffer, { filename: nomeDoArquivo, contentType: 'text/plain' });
 
-  try {
-    const response = await fetch(DISCORD_WEBHOOK_URL, {
-      method: 'POST',
-      body: form,
-    });
-    return response;
-  } finally {
-    await fs.unlink(nomeDoArquivo);
-  }
+  const response = await fetch(DISCORD_WEBHOOK_URL, {
+    method: 'POST',
+    body: form,
+  });
+
+  return response;
 }
 
-export async function handler(event) {
+exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
@@ -58,4 +54,4 @@ export async function handler(event) {
       body: 'Erro no servidor',
     };
   }
-}
+};
