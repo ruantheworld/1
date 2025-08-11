@@ -1,0 +1,243 @@
+    /* Reset básico */
+    *, *::before, *::after {
+    box-sizing: border-box;
+    }
+    html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background:
+        linear-gradient(rgba(30,30,47,0.7), rgba(30,30,47,0.7)),
+        url('../assets/hp.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    padding-top: 80px;
+    }
+
+    /* NAVBAR------------------------------------------------------------------------ */
+    /* Navbar CSS */
+    .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background-color: rgba(40, 40, 60, 0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0);
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1000;
+    }
+
+    .navbar-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color:  rgba(207, 148, 30, 0.8);
+    text-shadow: 0 0 5px #dbc604;
+    text-decoration: none;
+    }
+
+    .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    }
+
+    .nav-links a {
+    color: #f5f5f5;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+    background-color: rgba(207, 148, 30, 0.8);
+    color: #fff;
+    outline: none;
+    }
+
+    /* Responsividade simples */
+    @media (max-width: 650px) {
+    .navbar-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* Logo container */
+        .logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px; /* espaçamento entre a imagem e o texto */
+    }
+
+    .logo-img {
+    height: 40px; /* ajuste o tamanho conforme necessário */
+    width: auto;
+    }
+
+    .logo-text {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(238, 190, 62, 1); 
+    font-family: 'Medula One', 'Montserrat', sans-serif;
+    }
+    /* ------------------------------------------------------------------------- */
+    .container {
+    background-color: rgba(40, 40, 60, 0.5);
+    max-width: 1000px;
+    width: 100%;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    overflow-y: auto;
+    max-height: 90vh;
+    }
+
+    h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #e63946;
+    text-shadow: 0 0 5px #e63946;
+    }
+
+    label, p {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ddd;
+    }
+
+    /* Classe para inputs e textareas com estilo moderno */
+    .input-style {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #555;
+    border-radius: 8px;
+    background-color: #2c2c3f;
+    opacity: 0.6;
+    color: #f5f5f5;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+    resize: vertical; /* permite redimensionar textareas verticalmente */
+    }
+
+    .input-style::placeholder {
+    color: #aaa;
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    }
+
+    .input-style:focus {
+    border-color: #e63946;
+    box-shadow: 0 0 8px #e63946;
+    outline: none;
+    }
+
+    /* Grupo de radios estilizado */
+    .radio-group {
+    margin-bottom: 1.2rem;
+    color: #ddd;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    }
+
+    .radio-group label {
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 15px;
+    cursor: pointer;
+    
+    }
+
+    .radio-group input[type="radio"] {
+    display: inline-block;
+    margin-right: 6px;
+    cursor: pointer;
+    
+    }
+
+    /* Container da caixa extra (experiência RP) */
+    #caixaConteudo {
+    margin-top: 1rem;
+    }
+
+    /* Container para campo "Outro cargo" */
+    #campoOutroCargo {
+    margin-top: 8px;
+    }
+
+    /* Botão estilizado */
+    button {
+    width: 100%;
+    padding: 14px 0;
+    background-color: rgba(207, 148, 30, 0.8);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 10px rgba(181, 118, 13, 1);
+    margin-top: 1.5rem;
+    }
+
+    button:hover,
+    button:focus {
+    background-color: rgba(181, 118, 13, 0.8);
+    outline: none;
+    box-shadow: 0 0 12px rgba(250, 206, 86, 1);
+    }
+
+    /* Scrollbar personalizado (opcional) */
+    ::-webkit-scrollbar {
+    width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+    background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+    background-color: rgba(181, 118, 13, 0.8);
+    border-radius: 10px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 650px) {
+    .container {
+        padding: 20px 25px;
+    }
+    button {
+        font-size: 1rem;
+    }
+    }

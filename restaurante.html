@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Medula+One&family=Montserrat:wght@100&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styleRestaurante.css" />
+    <title>Formulario Restaurante</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo-container">
+                <img src="assets/logo.png" alt="Gold City Logo" class="logo-img" />
+                <span class="logo-text">GOLD CITY</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Hospital</a></li>
+                <li><a href="mecanica.html">Mecanica</a></li>
+                <li><a href="restaurante.html">Restaurante</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Edital Restaurante</h2>
+
+        <div>
+            <label for="nomePersonagem">Nome completo do personagem (In game):</label>
+            <input id="nomePersonagem" class="input-style" placeholder="Ex: Dra. Mariana Silva" />
+        </div>
+        <br />
+
+        <div>
+            <label for="disponibilidadeHorario">Disponibilidade de horário:</label>
+            <input id="disponibilidadeHorario" class="input-style" placeholder="Horário de disponibilidade dentro da cidade" />
+        </div>
+        <br />
+
+        <div>
+            <label for="idadeIRL">Idade (IRL):</label>
+            <input id="idadeIRL" class="input-style" placeholder="Ex: Idade na vida real" />
+        </div>
+        <br />
+
+        <!-- Grupo 1: Trabalha atualmente em outro lugar -->
+        <div class="radio-group">
+            <p>Você trabalha atualmente em outro lugar?</p>
+
+            <label for="trabalhaSim">
+                <input type="radio" id="trabalhaSim" name="trabalhaOutroLugar" value="sim" />
+                Sim
+            </label>
+
+            <div id="caixaFaccaoTrabalho" style="display:none; margin-top: 10px;">
+                <label for="detalhesTrabalho">Se sim, qual?</label><br />
+                <textarea id="detalhesTrabalho" class="input-style" name="detalhesTrabalho" rows="4" cols="50" placeholder="Informe onde trabalha"></textarea>
+            </div>
+            <br />
+            <label for="trabalhaNao">
+                <input type="radio" id="trabalhaNao" name="trabalhaOutroLugar" value="nao" />
+                Não
+            </label>
+        </div>
+        
+
+        <!-- Grupo 2: Já trabalhou em restaurante? -->
+        <div class="radio-group">
+            <p>Você já trabalhou em restaurante/cafeteria/lanchonete no RP antes?</p>
+
+            <label for="restauranteSim">
+                <input type="radio" id="restauranteSim" name="trabalhouRestaurante" value="sim" />
+                Sim
+            </label>
+
+            <div id="caixaFaccaoRestaurante" style="display:none; margin-top: 10px;">
+                <label for="detalhesRestaurante">Se sim, conta como foi:</label><br />
+                <textarea id="detalhesRestaurante" class="input-style" name="detalhesRestaurante" rows="4" cols="50" placeholder="Conte como foi"></textarea>
+            </div>
+            <br />
+
+            <label for="restauranteNao">
+                <input type="radio" id="restauranteNao" name="trabalhouRestaurante" value="nao" />
+                Não
+            </label>
+        </div>
+
+        <!-- Cargo desejado -->
+        <div class="radio-group">
+            <p>Cargo desejado:</p>
+
+            <label><input type="radio" name="cargo" value="Cozinheiro(a)" /> Cozinheiro(a)</label><br />
+            <label><input type="radio" name="cargo" value="Atendente" /> Atendente</label><br />
+            <label><input type="radio" name="cargo" value="Garçom/Garçonete" /> Garçom/Garçonete</label><br />
+            <label><input type="radio" name="cargo" value="Segurança" /> Segurança</label><br />
+            <label><input type="radio" name="cargo" value="Gerente" /> Gerente</label><br />
+
+            <label for="cargoOutroRadio">
+                <input type="radio" name="cargo" value="Outro" id="cargoOutroRadio" />
+                Outro:
+            </label>
+
+            <div id="campoOutroCargo" style="display:none; margin-top: 5px;">
+                <input type="text" id="inputOutroCargo" class="input-style" placeholder="Informe outro cargo..." />
+            </div>
+        </div>
+        
+
+        <div>
+            <label for="diferencial">Qual seu diferencial? O que você traria de único pro restaurante?</label>
+            <input id="diferencial" class="input-style" placeholder="Mostre a sua motivação" />
+        </div>
+        <br />
+
+        <div>
+            <label for="imersaoRoleplay">De 0 a 10, quão imersivo é o seu roleplay? E por que essa nota?</label>
+            <input id="imersaoRoleplay" class="input-style" placeholder="Escreva-nos" />
+        </div>
+        <br />
+
+        <div class="radio-group">
+            <p>Você gosta de interagir com o público? Segura bem no improviso com cliente chato, engraçado ou esquisito?</p>
+
+            <label><input type="radio" name="conhecimento" value="Sim" /> Sim</label><br />
+            <label><input type="radio" name="conhecimento" value="MaisOuMenos" /> Mais ou Menos</label><br />
+            <label><input type="radio" name="conhecimento" value="Basico" /> Só o básico</label><br />
+        </div>
+        <br />
+
+        <div>
+            <button id="sendToDatabase" type="button">Enviar</button>
+        </div>
+    </div>
+
+    <script src="js/scriptRestaurante.js"></script>
+</body>
+</html>
