@@ -134,7 +134,7 @@ document.getElementById('sendToDatabase').addEventListener('click', () => {
   };
 
   // Enviar
-  fetch('/.netlify/functions/enviarMecanica', {
+  fetch('/.netlify/functions/enviar2', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
