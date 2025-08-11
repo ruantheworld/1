@@ -2,7 +2,7 @@ const { neon } = require('@netlify/neon');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 
-const sql = neon();
+const sql = neon(process.env.NETLIFY_DATABASE_URL);
 
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1403137852790935676/nAWt2OkDHP-5LrOErvPNR2FcIeIzezu1FRABLHaKhY92VlUOJgkrCfHTq4EVL2kNPYRF';
 
