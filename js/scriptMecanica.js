@@ -64,78 +64,73 @@ rpNao.addEventListener('change', toggleCampoRP);
 
 // --- Envio dos dados ---
 document.getElementById('sendToDatabase').addEventListener('click', () => {
+   // Campos básicos
   const nome = document.getElementById('inputBox').value.trim();
   const disponibilidade = document.getElementById('inputBox2').value.trim();
   const idade = document.getElementById('inputBox3').value.trim();
   const situacaoRP = document.getElementById('inputBox4').value.trim();
-  const carta = document.getElementById('inputBox5').value.trim(); 
-  
-  const crescimento = document.querySelector('input[name="cargo"]:checked')?.value;
-  const cargoSelecionado = crescimento;
-  const tuning = document.querySelector('input[name="conhecimento"]:checked')?.value;
+  const carta = document.getElementById('inputBox5').value.trim();
+
+  // Campos de rádio e extras
   const trabalhouMecanico = document.querySelector('input[name="mecanico"]:checked')?.value;
-  const experienciaMecanico = textoMecanico.value.trim();
+  const experienciaMecanico = document.getElementById('textoMecanico').value.trim();
 
   const experienciaRP = document.querySelector('input[name="rp"]:checked')?.value;
-  const experienciaRPTexto = textoRP.value.trim();
+  const experienciaRPTexto = document.getElementById('textoRP').value.trim();
+
   const experienciaFaccao = document.querySelector('input[name="resposta"]:checked')?.value;
+  const textoFaccaoVal = document.getElementById('textoFaccao').value.trim();
 
-  const textoFaccaoVal = textoFaccao.value.trim();
+  const tuning = document.querySelector('input[name="conhecimento"]:checked')?.value;
+  const crescimento = document.querySelector('input[name="cargo"]:checked')?.value;
 
-  // Validações
+  // Validações obrigatórias
   if (!nome || !disponibilidade || !idade || !situacaoRP || !carta) {
     alert('Preencha todos os campos obrigatórios.');
     return;
   }
-
   if (!trabalhouMecanico) {
     alert('Responda se já trabalhou como mecânico.');
     return;
   }
-
   if (trabalhouMecanico === 'sim' && !experienciaMecanico) {
     alert('Descreva sua experiência como mecânico.');
     return;
   }
-
   if (!experienciaRP) {
     alert('Responda se já teve experiência em servidor RP.');
     return;
   }
-
   if (experienciaRP === 'sim' && !experienciaRPTexto) {
     alert('Descreva sua experiência em servidor RP.');
     return;
   }
-
   if (!tuning) {
-    alert('Por favor, selecione seu conhecimento sobre tuning, upgrades e manutenção.');
-    return; 
+    alert('Selecione seu conhecimento sobre tuning.');
+    return;
   }
-
   if (!crescimento) {
-    alert('Por favor, selecione seu interesse em crescer na equipe.');
+    alert('Selecione seu interesse em crescer na equipe.');
     return;
   }
 
+
   // Montar objeto
-  const body = {
-    texto: nome,
-    texto2: '',         // preencha conforme o que falta (nome jogador OOC)
-    texto3: idade,
-    texto4: '',         // experiência automotiva (se tiver)
-    texto5: '',         // motivo pra trabalhar na mecânica (se tiver)
-    texto6: '',         // qualidades (se tiver)
-    texto7: situacaoRP,
-    experienciaMecanico: trabalhouMecanico,
-    textoMecanico: experienciaMecanico,
+    const body = {
+    texto: nome,                      // Nome IC
+    texto2: disponibilidade,          // Disponibilidade
+    texto3: idade,                     // Idade OOC
+    texto4: trabalhouMecanico,         // Já trabalhou como mecânico
+    texto5: experienciaMecanico,       // Detalhes mecânico
+    texto6: tuning,                    // Conhecimento tuning
+    texto7: situacaoRP,                 // Situação RP
     experienciaRP,
     textoRP: experienciaRPTexto,
     experienciaFaccao,
     textoFaccao: textoFaccaoVal,
-    tuning,
     crescimento,
-    cargo: cargoSelecionado,
+    cargo: crescimento,                // Cargo desejado (mesmo valor)
+    carta                             // Carta de apresentação
   };
 
   // Enviar
