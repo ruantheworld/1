@@ -20,17 +20,18 @@
     align-items: center;
     padding: 20px;
     min-height: 100vh;
-    padding-top: 80px;
+    padding-top: 90px;
     }
 
     /* NAVBAR------------------------------------------------------------------------ */
     /* Navbar CSS */
     .navbar {
+    height: 70px;
     position: fixed;
     top: 0; left: 0; right: 0;
     background-color: rgba(40, 40, 60, 0.1);
-    box-shadow: 0 2px 10px rgba(0,0,0,0);
-    padding: 15px 40px;
+    box-shadow: none;
+    padding: 0px 40px;
     font-family: 'Montserrat', sans-serif;
     z-index: 1000;
     }
@@ -71,7 +72,7 @@
 
     .nav-links a:hover,
     .nav-links a:focus {
-    background-color: rgba(207, 148, 30, 0.8);
+    background-color: rgba(238, 190, 62, 0.2);
     color: #fff;
     outline: none;
     }
@@ -241,3 +242,113 @@
         font-size: 1rem;
     }
     }
+
+    /* NAVBAR -------------------------------------- */
+
+/* NAVBAR ================================= */
+.dropdown-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: calc(100% + 6px);           /* alinhado abaixo do item pai */
+  left: 0;
+  background-color: rgba(40, 40, 60, 0.9);
+  list-style: none;
+  padding: 0;
+  margin: 0;           /* mantém margin-top separado */
+  box-shadow: none;
+  min-width: 160px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+/* Mostrar submenu quando o pai tem a classe active (hover) */
+.nav-item:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para os links do submenu */
+.dropdown-content li a {
+  display: block;
+  padding: 10px 20px;
+  color: rgba(238, 190, 62, 1);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-left: 4px solid transparent;
+  white-space: nowrap;
+}
+
+.dropdown-content li a:hover {
+  background-color: rgba(238, 190, 62, 0.2);
+  color: #fff;
+  border-left-color: rgba(238, 190, 62, 1);
+  cursor: pointer;
+}
+
+/* Para que o dropdown pai fique posicionado corretamente */
+.nav-item {
+  position: relative;
+}
+
+/* Navbar geral e links (mantendo seu estilo) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(40, 40, 60, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 40px;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #f5f5f5;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: rgba(207, 148, 30, 0.8);
+  color: #fff;
+  outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 650px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
