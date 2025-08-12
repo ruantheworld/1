@@ -275,7 +275,7 @@
 .dropdown-content li a {
   display: block;
   padding: 10px 20px;
-  color: rgba(238, 190, 62, 1);
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
@@ -286,7 +286,7 @@
 
 .dropdown-content li a:hover {
   background-color: rgba(238, 190, 62, 0.2);
-  color: #fff;
+  color: rgba(238, 190, 62, 1);
   border-left-color: rgba(238, 190, 62, 1);
   cursor: pointer;
 }
