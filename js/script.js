@@ -11,13 +11,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       const form = forms.find(f => f.key === 'hospital');
 
       if (!form.active) {
-        document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Página fora do ar, formulário não está aberto.</h1>";
+        document.body.innerHTML = "<div id='navbar-container'></div><h1 style='text-align:center;margin-top:50px;'>Página fora do ar, formulário não está aberto.</h1>";
+
+        await carregarNavbar();
+
         return false;
       }
       return true;
     } catch (err) {
       console.error('Erro ao verificar status do formulário:', err);
       document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Erro ao carregar a página.</h1>";
+      await carregarNavbar();
       return false;
     }
   }
