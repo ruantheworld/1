@@ -1,10 +1,31 @@
 import { carregarNavbar } from '../js/navbar.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await carregarNavbar(); 
-  
-  // --- Referências dos elementos ---
+  await carregarNavbar();
 
+  // --- Verifica se o formulário está ativo ---
+  async function verificarStatusForm() {
+    try {
+      const res = await fetch('/.netlify/functions/getForms');
+      const forms = await res.json();
+      const form = forms.find(f => f.key === 'mecanica');
+
+      if (!form.active) {
+        document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Página fora do ar, formulário não está aberto.</h1>";
+        return false;
+      }
+      return true;
+    } catch (err) {
+      console.error('Erro ao verificar status do formulário:', err);
+      document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Erro ao carregar a página.</h1>";
+      return false;
+    }
+  }
+
+    const formAtivo = await verificarStatusForm();
+  if (!formAtivo) return; // interrompe execução se desativado
+
+  // --- Referências dos elementos ---
   const mecanicoSim = document.getElementById('mecanicoSim');
   const mecanicoNao = document.getElementById('mecanicoNao');
   const caixaMecanico = document.getElementById('caixaMecanico');
@@ -15,16 +36,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const caixaFaccao = document.getElementById('caixaFaccao');
   const textoFaccao = document.getElementById('textoFaccao');
 
-
-  const crescimento = document.querySelector('input[name="cargo"]:checked')?.value;
-  const cargoSelecionado = crescimento;
-
   const rpSim = document.getElementById('rpSim');
   const rpNao = document.getElementById('rpNao');
   const caixaRP = document.getElementById('caixaRP');
   const textoRP = document.getElementById('textoRP');
 
-  // --- Mostrar/ocultar campos com base nas respostas ---
+  // --- Mostrar/ocultar campos ---
   function toggleCampoMecanico() {
     if (mecanicoSim.checked) {
       caixaMecanico.style.display = 'block';
@@ -69,27 +86,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- Envio dos dados ---
   document.getElementById('sendToDatabase').addEventListener('click', () => {
-    // Campos básicos
     const nome = document.getElementById('inputBox').value.trim();
     const disponibilidade = document.getElementById('inputBox2').value.trim();
     const idade = document.getElementById('inputBox3').value.trim();
     const situacaoRP = document.getElementById('inputBox4').value.trim();
     const carta = document.getElementById('inputBox5').value.trim();
 
-    // Campos de rádio e extras
     const trabalhouMecanico = document.querySelector('input[name="mecanico"]:checked')?.value;
-    const experienciaMecanico = document.getElementById('textoMecanico').value.trim();
+    const experienciaMecanico = textoMecanico.value.trim();
 
     const experienciaRP = document.querySelector('input[name="rp"]:checked')?.value;
-    const experienciaRPTexto = document.getElementById('textoRP').value.trim();
+    const experienciaRPTexto = textoRP.value.trim();
 
     const experienciaFaccao = document.querySelector('input[name="resposta"]:checked')?.value;
-    const textoFaccaoVal = document.getElementById('textoFaccao').value.trim();
+    const textoFaccaoVal = textoFaccao.value.trim();
 
     const tuning = document.querySelector('input[name="conhecimento"]:checked')?.value;
     const crescimento = document.querySelector('input[name="cargo"]:checked')?.value;
 
-    // Validações obrigatórias
+    // Validações
     if (!nome || !disponibilidade || !idade || !situacaoRP || !carta) {
       alert('Preencha todos os campos obrigatórios.');
       return;
@@ -119,26 +134,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-
-    // Montar objeto
-      const body = {
-      texto: nome,                      // Nome IC
-      texto2: disponibilidade,          // Disponibilidade
-      texto3: idade,                     // Idade OOC
-      texto4: trabalhouMecanico,         // Já trabalhou como mecânico
-      texto5: experienciaMecanico,       // Detalhes mecânico
-      texto6: tuning,                    // Conhecimento tuning
-      texto7: situacaoRP,                 // Situação RP
+    const body = {
+      texto: nome,
+      texto2: disponibilidade,
+      texto3: idade,
+      texto4: trabalhouMecanico,
+      texto5: experienciaMecanico,
+      texto6: tuning,
+      texto7: situacaoRP,
       experienciaRP,
       textoRP: experienciaRPTexto,
       experienciaFaccao,
       textoFaccao: textoFaccaoVal,
       crescimento,
-      cargo: crescimento,                // Cargo desejado (mesmo valor)
-      carta                             // Carta de apresentação
+      cargo: crescimento,
+      carta
     };
 
-    // Enviar
     fetch('/.netlify/functions/enviar2', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

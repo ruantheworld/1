@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Medula+One&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleHospital.css">
+    <title>Formulario Mecanica</title>
+</head>
+<body>
+    <!-- Container Navbar -->
+    <div id="navbar-container"></div>
+
+
+    <div class="container">
+        <!-- Campo 1 -->
+        <h2>Edital Mecanica</h2>
+        <div>
+            <label for="inputBox">Nome completo do personagem (In game):</label>
+            <input id="inputBox" class="input-style" placeholder="Ex: Dra. Mariana Silva">
+        </div>
+        <br>
+        <!-- Campo 2 -->
+        <div>
+            <label for="inputBox2">Disponibilidade de horário:</label>
+            <input id="inputBox2" class="input-style" placeholder="Horário de disponibilidade dentro da cidade">
+        </div>
+        <br>
+        <!-- Campo 3 -->
+        <div>
+            <label for="inputBox3">Idade (IRL):</label>
+            <input id="inputBox3" class="input-style" placeholder="Ex: Idade na vida real">
+        </div>
+        <br>
+        <!-- Campo 4 -->
+                <div class="radio-group">
+            <p>Você faz parte de alguma organização, facção ou empresa atualmente?</p>
+
+            <label for="respostaSim">
+                <input type="radio" id="respostaSim" name="resposta" value="sim" />
+                Sim
+            </label>
+            
+            <!-- Campo extra que aparece só se Sim for selecionado -->
+        <div id="caixaFaccao" style="display:none; margin-top: 10px;">
+            <label for="textoFaccao"></label><br />
+            <textarea id="textoFaccao" class="input-style" name="conteudoTexto" rows="4" cols="50" placeholder="Se sim qual:"></textarea>
+        </div>
+        <br>
+            <label for="respostaNao">
+                <input type="radio" id="respostaNao" name="resposta" value="nao" />
+                Não
+            </label> 
+        </div>
+        
+        <!-- Campo 5 -->
+                <div class="radio-group">
+            <p>Você já trabalhou como mecânico(a) em outro local?</p>
+            
+            <label for="mecanicoSim">
+                <input type="radio" id="mecanicoSim" name="mecanico" value="sim" />
+                Sim
+            </label>
+            
+            <!-- Campo extra que aparece só se Sim for selecionado -->
+        <div id="caixaMecanico" style="display:none; margin-top: 10px;">
+            <label for="textoMecanico"></label><br />
+            <textarea id="textoMecanico" class="input-style" name="textoMecanico" rows="4" cols="50" placeholder="Onde?"></textarea>
+        </div>
+        <br>
+            <label for="mecanicoNao">
+                <input type="radio" id="mecanicoNao" name="mecanico" value="nao" />
+                Não
+            </label> 
+        </div>
+        
+        <!-- Campo 6 -->
+        <div class="radio-group">
+            <p>Você entende de tuning, upgrades e manutenção de veículos?</p>
+
+            <label><input type="radio" name="conhecimento" value="Sim"> Sim</label><br>
+            <label><input type="radio" name="conhecimento" value="MaisOuMenos"> Mais ou Menos</label><br>
+            <label><input type="radio" name="conhecimento" value="Basico"> Só o básico</label><br>
+            <label><input type="radio" name="conhecimento" value="Nada"> Nada ainda, mas quero aprender</label><br>
+        </div>
+
+        <!-- Campo 7 -->
+        <div>
+            <label for="inputBox4">Cite uma situação onde você teve que resolver um problema no RP com maturidade:</label>
+            <input id="inputBox4" class="input-style" placeholder="Escreva aqui a situação">
+        </div>
+        <br>
+        <!-- Campo 8 -->
+        <div class="radio-group">
+            <p>Já teve experiência anterior em servidor RP? (IRL):</p>
+            
+            <label for="rpSim">
+                <input type="radio" id="rpSim" name="rp" value="sim" />
+                Sim
+            </label>
+            
+            
+            <!-- Campo extra que aparece só se Sim for selecionado -->
+        <div id="caixaRP" style="display:none; margin-top: 10px;">
+            <label for="textoRP"></label><br />
+            <textarea id="textoRP" class="input-style" name="conteudoTexto" rows="4" cols="50" placeholder="Conte um pouco sobre sua experiência em servidores RP anteriores:"></textarea>
+        </div>
+        <br>
+            <label for="rpNao">
+                <input type="radio" id="rpNao" name="rp" value="nao" />
+                Não
+            </label> 
+        </div>
+        <!-- Campo 9 -->
+        <div class="radio-group">
+            <p>Tem interesse em crescer na equipe (virar gerente, chefe, etc)?</p>
+
+            <label><input type="radio" name="cargo" value="Sim"> Sim</label><br>
+            <label><input type="radio" name="cargo" value="Só quero ser mecânico mesmo"> Só quero ser mecânico mesmo</label><br>
+            <label><input type="radio" name="cargo" value="Quem sabe no futuro"> Quem sabe no futuro</label><br>
+        </div>
+
+        <!-- Campo 10 -->
+        <div>
+            <label for="inputBox5">Deixe um recado final pra gente, estilo carta de apresentação. Pode ser sério ou criativo. Mostre quem você é:</label>
+            <input id="inputBox5" class="input-style" placeholder="Escreva aqui a sua carta">
+        </div>
+        <br>
+
+        
+        <!-- Botão enviar para o database -->
+        <div>
+            <p>
+                <button id="sendToDatabase" type="button">Enviar</button>
+            </p>
+        </div>
+    </div>
+
+    <script type="module" src="js/scriptMecanica2.js"></script>
+</body>
+</html>
