@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       cargo: cargoFinal,
     };
 
-    fetch('/.netlify/functions/enviar3', {
+    fetch('/.netlify/functions/enviarRestaurante3', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),

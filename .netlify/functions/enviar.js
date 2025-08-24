@@ -4,7 +4,7 @@ const FormData = require('form-data');
 
 const sql = neon();
 
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1403137852790935676/nAWt2OkDHP-5LrOErvPNR2FcIeIzezu1FRABLHaKhY92VlUOJgkrCfHTq4EVL2kNPYRF';
+const DISCORD_WEBHOOK_URL = 'https://ptb.discord.com/api/webhooks/1408967069210378364/wR2IgOG8TZmhesyW2zl6T7VB1emIJ0Uz5OPygtCapfcY6PgIkNpP-pFBBkQzO58pnMLU';
 
 async function enviarArquivoParaDiscord(conteudo, nomeDoArquivo = 'mensagem.txt') {
   const form = new FormData();
